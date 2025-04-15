@@ -4,5 +4,5 @@ metadata:
   name: portal_postulante
   description: Grupo de Portal Postulante
 spec:
-  type: team
+  type: group
   parent: default
