@@ -1,0 +1,50 @@
+openapi: 3.0.1
+info:
+  title: UTP-A190-AG-PRD-00-App
+  description: Api Gateway de la aplicación UTP+App
+  version: v1
+servers:
+  - url: https://api-app.utpxpedition.com
+    x-amazon-apigateway-endpoint-configuration:
+      disableExecuteApiEndpoint: true
+paths:
+  /graphql:
+    options:
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+    x-amazon-apigateway-any-method:
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      security:
+        - UTP-A190-PRD-AG-00-Authorizer: []
+components:
+  schemas:
+    Empty:
+      title: Empty Schema
+      type: object
+  securitySchemes:
+    UTP-A190-PRD-AG-00-Authorizer:
+      type: apiKey
+      name: Unused
+      in: header
+      x-amazon-apigateway-authtype: custom

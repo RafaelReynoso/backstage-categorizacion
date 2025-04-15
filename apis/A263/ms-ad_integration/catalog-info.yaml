@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: A263_ms_ad_integration
+  description: Documentation de la API de integración con Active Directory para la aplicación UTP-APP.
+  links:
+    - url: https://dev.azure.com/master-aws/A263-Portal_del_Postulante/_git/A263-16_ms_ad_integration
+      title: Repositorio en Azure DevOps
+
+    - url: https://us-east-1.console.aws.amazon.com/ecs/v2/clusters/UTP-A263-ECS-PRD-00-PortalPostulante/services?region=us-east-1
+      title: AWS ECS
+  tags:
+    - ms-course
+spec:
+  type: openapi
+  lifecycle: production
+  owner: utp_app
+  system: UTP-APP
+  version: 1.0.0
+  definition:
+    $text: https://raw.githubusercontent.com/RafaelReynoso/Lab13-AplicacionesEmpresarialesAvanzadas/refs/heads/master/openapi.yaml
+  

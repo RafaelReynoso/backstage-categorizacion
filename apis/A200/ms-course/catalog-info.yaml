@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: A200_ms-course
+  description: Documentación de la API para la gestión de cursos, evaluaciones, contenidos y video conferencias en entornos educativos.
+  links:
+    - url: https://dev.azure.com/master-aws/A200-UTP_CLASS/_git/back-pao-course
+      title: Repositorio en Azure DevOps
+
+    - url: https://us-east-1.console.aws.amazon.com/ecs/v2/clusters/UTP-A200-ECS-PRD-00-Class/services?region=us-east-1
+      title: AWS ECS
+  tags:
+    - ms-course
+spec:
+  type: openapi
+  lifecycle: production
+  owner: utp_class
+  system: UTP-CLASS
+  version: 1.0.0
+  definition:
+    $text: https://raw.githubusercontent.com/RafaelReynoso/Lab13-AplicacionesEmpresarialesAvanzadas/refs/heads/master/openapi.yaml
+  

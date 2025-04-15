@@ -1,0 +1,364 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "apolo integration API Documentation",
+    "version": "1.0.0",
+    "description": "This is the API documentation for the application."
+  },
+  "components": {
+    "responses": {
+      "InternalErrorResponse": {
+        "description": "internal error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string" },
+                "message": { "type": "string" },
+                "errorCode": { "type": "number" }
+              }
+            }
+          }
+        }
+      },
+      "UnauthorizedError": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string" },
+                "message": { "type": "string" },
+                "errorCode": { "type": "number" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "ErrorCode": {
+        "type":"integer",
+        "enum": ["{badParametersInput:  -10}", "{errorDBRequest: -20}", "{functionalError: -30}", "{errorAuth: -40}"]
+
+      }
+    }
+  },
+  "tags": [
+    { "name": "Candidate" }
+  ],
+  "paths": {
+    "/v1/candidate/{id}/documents": {
+      "get": {
+        "tags": ["Candidate"],
+        "summary": "Candidate's Documents in apolo13",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "the empli id of the candidate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Docuemnt List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "candidateDocuments": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "codDocument": { "type": "string" },
+                              "message": { "status": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalErrorResponse"
+          }
+        }
+      }
+    },
+    "/v1/candidate/{id}/exam-result": {
+      "get": {
+        "tags": ["Candidate"],
+        "summary": "status of exam's results by candidate in apolo13",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "the empli id of the candidate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Exam Result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "status": { "type": "string" },
+                        "mathApproved": { "type": "boolean" },
+                        "redactionApproved": { "type": "boolean" },
+                        "resultDate": { "type": "string" },
+                        "examDate": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalErrorResponse"
+          }
+        }
+      }
+    },
+    "/v1/candidate/get-age-pension-grou/{id}/{age}": {
+      "get": {
+        "tags": ["Candidate"],
+        "summary": "get pension group and agre group by empliID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "the empli id of the candidate"
+          },
+          {
+            "in": "path",
+            "name": "age",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "the age of the candidate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "pension group and age group",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "pension_group": { "type": "string" },
+                        "age_group": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalErrorResponse"
+          }
+        }
+      }
+    },
+    "/v1/candidate/terms": {
+      "get": {
+        "tags": ["Candidate"],
+        "summary": "Terms in apolo13",
+        "responses": {
+          "200": {
+            "description": "tems List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "terms": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "institution": { "type": "string" },
+                              "career": { "status": "string" },
+                              "term": { "status": "string" },
+                              "description": { "status": "string" },
+                              "shortdescription": { "status": "string" },
+                              "start_date": { "status": "string" },
+                              "end_date": { "status": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalErrorResponse"
+          }
+        }
+      }
+    },
+    "/v1/candidate/{id}/data-user": {
+      "get": {
+        "tags": ["Candidate"],
+        "summary": "Candidate data in apolo13",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "the empli id of the candidate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Exam Result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "term": { "type": "string" },
+                        "program": { "type": "boolean" },
+                        "order": { "type": "boolean" },
+                        "campus": { "type": "string" },
+                        "address": { "type": "string" },
+                        "admitType": { "type": "string" },
+                        "isPDN": { "type": "string" },
+                        "ingressType": { "type": "string" },
+                        "subGrade": { "type": "string" },
+                        "zone": { "type": "string" },
+                        "descSubGrade": { "type": "string" },
+                        "descCampus": { "type": "string" },
+                        "descProgram": { "type": "string" },
+                        "descTerm": { "type": "string" },
+                        "descAdmitType": { "type": "string" },
+                        "shift": { "type": "string" },
+                        "descShift": { "type": "string" },
+                        "descFullTerm": { "type": "string" },
+                        "ingressDate": { "type": "string" },
+                        "utpCode": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalErrorResponse"
+          }
+        }
+      }
+    },
+    "/v1/candidate/get-debts": {
+      "post": {
+        "tags": ["Candidate"],
+        "summary": "debts by candidate data in apolo13",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "empli_id",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "the empli id of the candidate"
+          },
+          {
+            "in": "body",
+            "name": "term",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "the term of the candidate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Debt List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "debts": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "amount": { "type": "string" },
+                              "original_amount": { "status": "string" },
+                              "currency": { "status": "string" },
+                              "due_dt": { "status": "string" },
+                              "concept": { "status": "string" },
+                              "refer": { "status": "string" },
+                              "item_type": { "status": "string" },
+                              "paid_amount": { "status": "string" },
+                              "account_type_sf": { "status": "string" },
+                              "is_paid": { "status": "string" },
+                              "type_debt": { "status": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalErrorResponse"
+          }
+        }
+      }
+    }
+  }
+}
