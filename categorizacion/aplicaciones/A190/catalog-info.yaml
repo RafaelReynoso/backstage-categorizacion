@@ -1,8 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: UTP-APP
-  description: Aplicacion UTP+APP
-spec:
-  owner: utp_app
-  domain: Alumno
