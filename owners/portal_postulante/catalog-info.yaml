@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: portal_postulante
+  description: Grupo de Portal Postulante
+spec:
+  type: team
+  parent: default

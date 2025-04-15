@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: utp_class
+  description: Grupo de UTP+CLASS
+spec:
+  type: team
+  parent: default

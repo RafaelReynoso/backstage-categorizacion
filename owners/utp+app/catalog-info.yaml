@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: utp_app
+  description: Grupo de UTP+APP
+spec:
+  type: team
+  parent: default
