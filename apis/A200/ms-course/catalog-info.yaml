@@ -11,7 +11,7 @@ metadata:
       title: AWS ECS
   tags:
     - ms-course
-    - A200
+    - a200
 spec:
   type: openapi
   lifecycle: production
