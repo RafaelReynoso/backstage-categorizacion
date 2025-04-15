@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: Administrativo
+  description: Programa - Administrativo
+  tags:
+    - gestion-y-desarrollo
+    - operaciones-administrativas
+    - operaciones-financieras
+    - servicios-administrativos
+    - tecnologia-e-innovacion
+  
