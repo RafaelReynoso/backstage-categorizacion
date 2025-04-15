@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: Alumno
+  description: Programa - Alumno
+  tags:
+    - gestion-y-desarrollo
+    - operaciones-administrativas
+    - operaciones-financieras
+    - servicios-administrativos
+    - tecnologia-e-innovacion
+spec:
+  owner: team-alumno
+  
