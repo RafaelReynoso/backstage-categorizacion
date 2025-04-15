@@ -14,8 +14,8 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: utp_app
-  system: UTP-APP
+  owner: portal_postulante
+  system: Portal_Postulante
   version: 1.0.0
   definition:
     $text: https://raw.githubusercontent.com/RafaelReynoso/backstage-categorizacion/refs/heads/main/apis/A263/ms-portal_postulante/openapi.yaml
