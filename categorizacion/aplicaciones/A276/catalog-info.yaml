@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: UTP-NOTIFICATION
+  description: Aplicacion UTP+NOTIFICATION
+spec:
+  owner: utp_notification
+  domain: Alumno
