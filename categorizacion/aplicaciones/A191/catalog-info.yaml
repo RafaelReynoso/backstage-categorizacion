@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: UTP-PORTAL
+  description: Aplicacion UTP+PORTAL
+spec:
+  owner: utp_portal
+  domain: Alumno
